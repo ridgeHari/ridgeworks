@@ -8,7 +8,8 @@ services:
       - 8002:8000
     volumes:
       - .:/app
-    command: python manage.py runserver 0.0.0.0:8000
+    command: >
+      bash -c "python manage.py makemessages -a && python manage.py compilemessages && python manage.py runserver 0.0.0.0:8000"
 
 volumes:
   db_data:

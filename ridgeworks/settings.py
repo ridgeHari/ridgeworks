@@ -105,6 +105,30 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+LANGUAGES = [
+    ('en', 'English'),
+    ('ja', 'Japanese'),
+    ('es', 'Spanish'),
+    ('hi', 'Hindi'),
+    ('ar', 'Arabic'),
+    ('bn', 'Bengali'),
+    ('pt', 'Portuguese'),
+    ('ru', 'Russian'),
+    ('pa', 'Punjabi'),
+    ('de', 'German'),
+    ('jv', 'Javanese'),
+    ('ko', 'Korean'),
+    ('fr', 'French'),
+    ('te', 'Telugu'),
+    ('vi', 'Vietnamese'),
+    ('mr', 'Marathi'),
+    ('ta', 'Tamil'),
+    ('ur', 'Urdu'),
+    ('tr', 'Turkish'),
+]
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
 
 TIME_ZONE = 'UTC'
 

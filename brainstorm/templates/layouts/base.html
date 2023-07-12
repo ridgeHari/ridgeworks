@@ -1,0 +1,91 @@
+{% load static %} {% load i18n %}
+
+<!DOCTYPE html>
+<html lang="{% get_current_language as LANGUAGE_CODE %}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% blocktrans %}Brainstorm{% endblocktrans %}</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    </head>
+    <body class="bg-light">
+        <div class="container">
+            {% block navbar %}
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#"> {% trans 'Brainstorm' %} </a>
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="{% trans 'Toggle navigation' %}"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'home' %}"> {% trans 'Home' %} </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'qa_portal' %}"> {% trans 'QA Portal' %} </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'contact' %}"> {% trans 'Contact' %} </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="languageDropdown"
+                                    role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false"
+                                >
+                                    {{ LANGUAGE_CODE }}
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                    {% get_available_languages as LANGUAGES %}
+                                    <!-- Get the available languages -->
+                                    {% for lang_code, lang_name in LANGUAGES %}
+                                    <li>
+                                        <a class="dropdown-item" href="{% url 'set_language' lang_code %}">
+                                            {{ lang_name }}
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            {% endblock %}
+        </div>
+
+        <div class="container">{% block content %} {% endblock %}</div>
+
+        <div class="container">
+            <footer class="footer fixed-bottom">
+                {% block footer %}
+                <footer class="footer mt-auto py-3 bg-light">
+                    <div class="container text-center">
+                        <span class="text-muted">
+                            &copy; 2023 {% trans 'Brainstorm' %}. {% trans 'All rights reserved.' %}
+                        </span>
+                    </div>
+                </footer>
+                {% endblock %}
+            </footer>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    </body>
+</html>

@@ -7,6 +7,10 @@ RUN apt-get update && apt-get install -y sqlite3
 # Set the working directory inside the container
 WORKDIR /app
 
+# Install gettext package
+RUN apt-get update && \
+  apt-get install -y gettext
+
 # Copy the requirements.txt file to the container
 COPY requirements.txt .
 

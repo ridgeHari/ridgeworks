@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ridgeworks - Home</title>
-</head>
-<body>
-    <h1>Welcome to Ridgeworks!</h1>
-    <p>This is the index page for your "brainstorm" app.</p>
-</body>
-</html>
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header bg-light">
+          {% trans 'Welcome to the Index Page' %}
+        </div>
+        <!-- Translate the card-header content -->
+        <div class="card-body">
+          <p>{% trans 'This is the content of the index page.' %}</p>
+          <!-- Translate the content of the card -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
