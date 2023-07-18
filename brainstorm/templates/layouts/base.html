@@ -2,90 +2,98 @@
 
 <!DOCTYPE html>
 <html lang="{% get_current_language as LANGUAGE_CODE %}">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>{% blocktrans %}Brainstorm{% endblocktrans %}</title>
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    </head>
-    <body class="bg-light">
-        <div class="container">
-            {% block navbar %}
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#"> {% trans 'Brainstorm' %} </a>
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav"
-                        aria-controls="navbarNav"
-                        aria-expanded="false"
-                        aria-label="{% trans 'Toggle navigation' %}"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% blocktrans %}Brainstorm{% endblocktrans %}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+<body class="bg-light">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00b894">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}" style="color: #ffffff; font-weight: bold">{% trans 'Brainstorm' %}</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="{% trans 'Toggle navigation' %}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        {% if user.is_authenticated %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'home' %}"> {% trans 'Home' %} </a>
+                                <a class="nav-link" href="{% url 'questions_list' %}" style="color: #ffffff">{% trans 'Questions' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'qa_portal' %}"> {% trans 'QA Portal' %} </a>
+                                <a class="nav-link" href="{% url 'ask_question' %}" style="color: #ffffff">{% trans 'Ask a Question' %}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{% url 'contact' %}"> {% trans 'Contact' %} </a>
+                                <a class="nav-link" href="{% url 'contact' %}" style="color: #ffffff">{% trans 'Contact' %}</a>
                             </li>
-                            <li class="nav-item dropdown">
-                                <a
-                                    class="nav-link dropdown-toggle"
-                                    href="#"
-                                    id="languageDropdown"
-                                    role="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-expanded="false"
-                                >
-                                    {{ LANGUAGE_CODE }}
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="languageDropdown">
-                                    {% get_available_languages as LANGUAGES %}
-                                    <!-- Get the available languages -->
-                                    {% for lang_code, lang_name in LANGUAGES %}
-                                    <li>
-                                        <a class="dropdown-item" href="{% url 'set_language' lang_code %}">
-                                            {{ lang_name }}
-                                        </a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#logoutModal">{% trans 'Logout' %}</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'login' %}" style="color: #ffffff">{% trans 'Login' %}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'register' %}" style="color: #ffffff">{% trans 'Register' %}</a>
+                            </li>
+                        {% endif %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #ffffff">{{ LANGUAGE_CODE }}</a>
+                            <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                                {% get_available_languages as LANGUAGES %}
+                                <!-- Get the available languages -->
+                                {% for lang_code, lang_name in LANGUAGES %}
+                                    <li {% if lang_code == LANGUAGE_CODE %}class="active"{% endif %}>
+                                        <a class="dropdown-item" href="{% url 'set_language' lang_code %}">{{ lang_name }}</a>
                                     </li>
-                                    {% endfor %}
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
-            {% endblock %}
+            </div>
+        </nav>
+    </div>
+
+    <!-- logout confirmation modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="logoutModalLabel">{% trans 'Logout Confirmation' %}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{% trans 'Close' %}"></button>
+            </div>
+            <div class="modal-body">
+            <p>{% trans 'Are you sure you want to logout?' %}</p>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans 'Cancel' %}</button>
+            <a class="btn btn-primary" href="{% url 'logout' %}">{% trans 'Logout' %}</a>
+            </div>
         </div>
-
-        <div class="container">{% block content %} {% endblock %}</div>
-
-        <div class="container">
-            <footer class="footer fixed-bottom">
-                {% block footer %}
-                <footer class="footer mt-auto py-3 bg-light">
-                    <div class="container text-center">
-                        <span class="text-muted">
-                            &copy; 2023 {% trans 'Brainstorm' %}. {% trans 'All rights reserved.' %}
-                        </span>
-                    </div>
-                </footer>
-                {% endblock %}
-            </footer>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    </body>
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+
+    <div class="container pt-5">
+        <footer class="footer fixed-bottom p-3" style="background-color: #00b894; color: #ffffff">
+            <div class="container text-center">
+                <span class="text-muted">
+                    &copy; 2023 {% trans 'Brainstorm' %}. {% trans 'All rights reserved.' %}
+                </span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
 </html>

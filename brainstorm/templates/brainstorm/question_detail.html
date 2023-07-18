@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header bg-secondary text-white">
+      <i class="fas fa-hashtag"></i>
+      {{ question.question_id }}
+      <h2 class="card-text fs-4 fw-bold d-inline ms-3">{{ question.question_title }}</h2>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="mb-5">
+            <h4 class="card-title">
+              <i class="fas fa-file-alt me-2"></i>
+              <strong>{% trans 'Description' %}:</strong>
+            </h4>
+            <p class="card-text fs-5">{{ question.question_description }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-end">
+        <p class="text-end mb-0"><em>{{ question.creation_date }}</em></p>
+        <p class="text-end mb-0"><em>{{ question.username }}</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

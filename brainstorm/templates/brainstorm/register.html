@@ -1,0 +1,113 @@
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container h-100 py-5">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-md-10 col-lg-6 col-xl-5">
+      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+        {% trans 'Sign up' %}
+      </p>
+
+      <form class="mx-1 mx-md-4" method="POST" action="{% url 'register' %}">
+        {% csrf_token %} {% if error_messages %}
+        <div class="alert alert-danger" role="alert">
+          {% for message in error_messages %} {{ message }}
+          <br />
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              value="{{ username }}"
+            />
+            <label class="form-label" for="username"
+              >{% trans 'Your Name' %}</label
+            >
+          </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              value="{{ email }}"
+            />
+            <label class="form-label" for="email"
+              >{% trans 'Your Email' %}</label
+            >
+          </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+            />
+            <label class="form-label" for="password"
+              >{% trans 'Password' %}</label
+            >
+          </div>
+        </div>
+
+        <div class="d-flex flex-row align-items-center mb-4">
+          <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+          <div class="form-outline flex-fill mb-0">
+            <input
+              type="password"
+              id="confirm_password"
+              name="confirm_password"
+              class="form-control"
+            />
+            <label class="form-label" for="confirm_password"
+              >{% trans 'Repeat your password' %}</label
+            >
+          </div>
+        </div>
+
+        <div class="form-check d-flex justify-content-center mb-5">
+          <input
+            class="form-check-input me-2"
+            type="checkbox"
+            value="true"
+            id="term"
+            name="agreement"
+            {%
+            if
+            term
+            %}checked{%
+            endif
+            %}
+          />
+          <label class="form-check-label" for="term">
+            {% trans 'I agree to all statements in' %}
+            <a href="#!">{% trans 'Terms of Service' %}</a>
+          </label>
+        </div>
+
+        <div class="d-grid">
+          <button
+            type="submit"
+            class="btn btn-lg"
+            style="background-color: #00b894; color: #ffffff"
+          >
+            {% trans 'Register' %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

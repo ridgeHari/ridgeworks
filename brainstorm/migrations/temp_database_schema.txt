@@ -1,0 +1,31 @@
+-- Create the Question table
+CREATE TABLE Question (
+    question_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    question_title TEXT,
+    question_description TEXT,
+    creation_date DATETIME,
+    FOREIGN KEY (user_id) REFERENCES auth_user (id)
+);
+
+-- Create the Answer table
+CREATE TABLE Answer (
+    answer_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_id INTEGER,
+    user_id INTEGER,
+    answer_text TEXT,
+    creation_date DATETIME,
+    FOREIGN KEY (question_id) REFERENCES Question (question_id),
+    FOREIGN KEY (user_id) REFERENCES auth_user (id)
+);
+
+-- Create the Comment table
+CREATE TABLE Comment (
+    comment_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question_id INTEGER,
+    user_id INTEGER,
+    comment_text TEXT,
+    creation_date DATETIME,
+    FOREIGN KEY (question_id) REFERENCES Question (question_id),
+    FOREIGN KEY (user_id) REFERENCES auth_user (id)
+);

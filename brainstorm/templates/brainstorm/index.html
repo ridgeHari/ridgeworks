@@ -1,16 +1,35 @@
-{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
-<div class="container mt-4">
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header bg-light">
-          {% trans 'Welcome to the Index Page' %}
-        </div>
-        <!-- Translate the card-header content -->
-        <div class="card-body">
-          <p>{% trans 'This is the content of the index page.' %}</p>
-          <!-- Translate the content of the card -->
-        </div>
+    <div class="col-md-8 text-center">
+      <h1>{% trans "Welcome to Brainstorm" %}</h1>
+      <p class="lead">{% trans "Unlock your creativity and explore new ideas!" %}</p>
+    </div>
+  </div>
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-4 text-center">
+      <div class="animated fadeInDown">
+        <i class="fas fa-lightbulb fa-3x"></i>
+        <h2 class="mt-4">{% trans "Spark Your Ideas" %}</h2>
+        <p>{% trans "Discover inspiration and ignite your creative thinking with Brainstorm." %}</p>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="animated fadeInUp delay-1s">
+        <i class="fas fa-pencil-alt fa-3x"></i>
+        <h2 class="mt-4">{% trans "Capture Your Thoughts" %}</h2>
+        <p>{% trans "Jot down your ideas and keep track of your brainstorming sessions effortlessly." %}</p>
+      </div>
+    </div>
+    <div class="col-md-4 text-center">
+      <div class="animated fadeInLeft delay-2s">
+        <i class="fas fa-cogs fa-3x"></i>
+        <h2 class="mt-4">{% trans "Turn Ideas into Reality" %}</h2>
+        <p>{% trans "Transform your innovative concepts into tangible solutions and successful projects." %}</p>
       </div>
     </div>
   </div>

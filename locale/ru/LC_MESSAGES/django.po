@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-12 05:44+0000\n"
+"POT-Creation-Date: 2023-07-18 03:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,36 +20,202 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: brainstorm/templates/brainstorm/index.html:7
-#: brainstorm/templates/brainstorm/index.html:87
-#: brainstorm/templates/layouts/base.html:8
-msgid "Brainstorm"
+#: brainstorm/templates/brainstorm/ask_question.html:10
+#: brainstorm/templates/layouts/base.html:28
+msgid "Ask a Question"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:15
-msgid "Toggle navigation"
+#: brainstorm/templates/brainstorm/ask_question.html:23
+msgid "Question"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:22
-msgid "Home"
+#: brainstorm/templates/brainstorm/ask_question.html:24
+msgid "Enter your question"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:26
-msgid "QA Portal"
+#: brainstorm/templates/brainstorm/ask_question.html:34
+msgid "Details"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:31
+#: brainstorm/templates/brainstorm/ask_question.html:35
+msgid "Enter additional details"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/ask_question.html:44
+#: brainstorm/templates/brainstorm/contact.html:56
+msgid "Submit"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/contact.html:10
+#: brainstorm/templates/layouts/base.html:31
 msgid "Contact"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:71
-msgid "Welcome to the Index Page"
+#: brainstorm/templates/brainstorm/contact.html:23
+msgid "Name"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:74
-msgid "This is the content of the index page."
+#: brainstorm/templates/brainstorm/contact.html:24
+msgid "Enter your name"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/index.html:87
+#: brainstorm/templates/brainstorm/contact.html:34
+msgid "Email"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/contact.html:35
+msgid "Enter your email address"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/contact.html:45
+msgid "Message"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/contact.html:46
+msgid "Enter your message"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:9
+msgid "Welcome to Brainstorm"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:10
+msgid "Unlock your creativity and explore new ideas!"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:17
+msgid "Spark Your Ideas"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:18
+msgid "Discover inspiration and ignite your creative thinking with Brainstorm."
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:24
+msgid "Capture Your Thoughts"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:25
+msgid ""
+"Jot down your ideas and keep track of your brainstorming sessions "
+"effortlessly."
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:31
+msgid "Turn Ideas into Reality"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/index.html:32
+msgid ""
+"Transform your innovative concepts into tangible solutions and successful "
+"projects."
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:6
+#: brainstorm/templates/brainstorm/login.html:76
+#: brainstorm/templates/layouts/base.html:38
+msgid "Login"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:19
+msgid "Enter a valid username"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:23
+msgid "Username"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:34
+msgid "Enter password"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:38
+#: brainstorm/templates/brainstorm/register.html:60
+msgid "Password"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:59
+msgid "Remember me"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:62
+msgid "Forgot password?"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:79
+msgid "Don't have an account?"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/login.html:80
+#: brainstorm/templates/brainstorm/register.html:106
+#: brainstorm/templates/layouts/base.html:41
+msgid "Register"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/question_detail.html:15
+msgid "Description"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/questions_list.html:9
+#: brainstorm/templates/layouts/base.html:25
+msgid "Questions"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:6
+msgid "Sign up"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:29
+msgid "Your Name"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:45
+msgid "Your Email"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:75
+msgid "Repeat your password"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:95
+msgid "I agree to all statements in"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/register.html:96
+msgid "Terms of Service"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:8
+#: brainstorm/templates/layouts/base.html:17
+#: brainstorm/templates/layouts/base.html:89
+msgid "Brainstorm"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:18
+msgid "Toggle navigation"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:34
+#: brainstorm/templates/layouts/base.html:75
+msgid "Logout"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:67
+msgid "Logout Confirmation"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:68
+msgid "Close"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:71
+msgid "Are you sure you want to logout?"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:74
+msgid "Cancel"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:89
 msgid "All rights reserved."
 msgstr ""

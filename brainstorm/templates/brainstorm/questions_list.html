@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-body">
+          <h2 class="mb-4">{% trans 'Questions' %}</h2>
+          <ul class="list-group">
+            {% for question in question_list %}
+            <li class="list-group-item">
+              <em>
+                <p class="text-start mb-0">
+                  #{{ question.0 }}
+                  <a href="{% url 'question_detail' question_id=question.0 %}">{{ question.1 }}</a>
+                  <span class="float-end text-muted small">{{ question.3 }}</span>
+                </p>
+              </em>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
