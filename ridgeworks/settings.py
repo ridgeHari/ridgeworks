@@ -153,3 +153,9 @@ EMAIL_HOST_USER = 'ridgetestmail1@gmail.com'
 EMAIL_HOST_PASSWORD = 'password'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+TIME_ZONE = 'Asia/Tokyo'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

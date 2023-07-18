@@ -29,3 +29,20 @@ CREATE TABLE Comment (
     FOREIGN KEY (question_id) REFERENCES Question (question_id),
     FOREIGN KEY (user_id) REFERENCES auth_user (id)
 );
+
+
+CREATE TABLE IF NOT EXISTS "auth_user1" (
+  "id" integer NOT NULL PRIMARY KEY AUTOINCREMENT,
+  "password" varchar(128) NOT NULL,
+  "last_login" datetime NULL,
+  "is_superuser" bool NOT NULL,
+  "username" varchar(150) NULL UNIQUE,
+  "last_name" varchar(150) NULL,
+  "email" varchar(254) NOT NULL,
+  "is_staff" bool NULL,
+  "is_active" bool NULL,
+  "date_joined" datetime NULL,
+  "first_name" varchar(150) NULL
+);
+
+

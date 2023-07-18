@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-18 03:54+0000\n"
+"POT-Creation-Date: 2023-07-18 17:34+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,76 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+
+#: brainstorm/templates/brainstorm/admin/panel.html:6
+msgid "Admin Panel"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:9
+msgid "Add Question"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:15
+#: brainstorm/templates/brainstorm/admin/panel.html:16
+msgid "Question Title"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:19
+#: brainstorm/templates/brainstorm/admin/panel.html:20
+msgid "Question Description"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:22
+msgid "Add"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:28
+msgid "Question List"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:34
+msgid "Title"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:35
+#: brainstorm/templates/brainstorm/question_detail.html:15
+msgid "Description"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:36
+msgid "Actions"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:49
+msgid "Show More"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:59
+msgid "Edit"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:62
+#: brainstorm/templates/brainstorm/admin/panel.html:87
+msgid "Delete"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:79
+msgid "Delete Question"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:83
+msgid "Are you sure you want to delete this question?"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:86
+#: brainstorm/templates/layouts/base.html:79
+msgid "Cancel"
+msgstr ""
+
+#: brainstorm/templates/brainstorm/admin/panel.html:105
+#: brainstorm/templates/layouts/base.html:73
+msgid "Close"
+msgstr ""
 
 #: brainstorm/templates/brainstorm/ask_question.html:10
 #: brainstorm/templates/layouts/base.html:28
@@ -111,7 +181,7 @@ msgstr ""
 
 #: brainstorm/templates/brainstorm/login.html:6
 #: brainstorm/templates/brainstorm/login.html:76
-#: brainstorm/templates/layouts/base.html:38
+#: brainstorm/templates/layouts/base.html:43
 msgid "Login"
 msgstr ""
 
@@ -128,7 +198,7 @@ msgid "Enter password"
 msgstr ""
 
 #: brainstorm/templates/brainstorm/login.html:38
-#: brainstorm/templates/brainstorm/register.html:60
+#: brainstorm/templates/brainstorm/register.html:75
 msgid "Password"
 msgstr ""
 
@@ -145,16 +215,12 @@ msgid "Don't have an account?"
 msgstr ""
 
 #: brainstorm/templates/brainstorm/login.html:80
-#: brainstorm/templates/brainstorm/register.html:106
-#: brainstorm/templates/layouts/base.html:41
+#: brainstorm/templates/brainstorm/register.html:123
+#: brainstorm/templates/layouts/base.html:46
 msgid "Register"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/question_detail.html:15
-msgid "Description"
-msgstr ""
-
-#: brainstorm/templates/brainstorm/questions_list.html:9
+#: brainstorm/templates/brainstorm/questions_list.html:7
 #: brainstorm/templates/layouts/base.html:25
 msgid "Questions"
 msgstr ""
@@ -163,29 +229,29 @@ msgstr ""
 msgid "Sign up"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/register.html:29
+#: brainstorm/templates/brainstorm/register.html:42
 msgid "Your Name"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/register.html:45
+#: brainstorm/templates/brainstorm/register.html:59
 msgid "Your Email"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/register.html:75
+#: brainstorm/templates/brainstorm/register.html:91
 msgid "Repeat your password"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/register.html:95
+#: brainstorm/templates/brainstorm/register.html:112
 msgid "I agree to all statements in"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/register.html:96
+#: brainstorm/templates/brainstorm/register.html:113
 msgid "Terms of Service"
 msgstr ""
 
 #: brainstorm/templates/layouts/base.html:8
 #: brainstorm/templates/layouts/base.html:17
-#: brainstorm/templates/layouts/base.html:89
+#: brainstorm/templates/layouts/base.html:94
 msgid "Brainstorm"
 msgstr ""
 
@@ -193,27 +259,23 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: brainstorm/templates/layouts/base.html:34
-#: brainstorm/templates/layouts/base.html:75
+#: brainstorm/templates/layouts/base.html:35
+msgid "Admin"
+msgstr ""
+
+#: brainstorm/templates/layouts/base.html:39
+#: brainstorm/templates/layouts/base.html:80
 msgid "Logout"
 msgstr ""
 
-#: brainstorm/templates/layouts/base.html:67
+#: brainstorm/templates/layouts/base.html:72
 msgid "Logout Confirmation"
 msgstr ""
 
-#: brainstorm/templates/layouts/base.html:68
-msgid "Close"
-msgstr ""
-
-#: brainstorm/templates/layouts/base.html:71
+#: brainstorm/templates/layouts/base.html:76
 msgid "Are you sure you want to logout?"
 msgstr ""
 
-#: brainstorm/templates/layouts/base.html:74
-msgid "Cancel"
-msgstr ""
-
-#: brainstorm/templates/layouts/base.html:89
+#: brainstorm/templates/layouts/base.html:94
 msgid "All rights reserved."
 msgstr ""

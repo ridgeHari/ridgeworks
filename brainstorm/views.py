@@ -8,13 +8,83 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
+from django.contrib.auth.decorators import user_passes_test
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def panel(request):
+    # Execute a SELECT query to fetch all questions from the database
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT question_id, question_title, question_description FROM question ORDER BY question_id DESC")
+        question_list = cursor.fetchall()
+
+    context = {
+        'question_list': question_list
+    }
+    return render(request, 'brainstorm/admin/panel.html', context)
+
+
+def add_question(request):
+    if request.method == 'POST':
+        question_title = request.POST.get('question_title')
+        question_description = request.POST.get('question_description')
+
+        # Execute an INSERT query to add a new question to the database
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO question (question_title, question_description) VALUES (%s, %s)",
+                [question_title, question_description]
+            )
+
+        return redirect('panel')
+
+
+def edit_question(request, question_id):
+    # Execute a SELECT query to fetch the specific question from the database
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT question_id, question_title, question_description FROM question WHERE question_id = %s",
+            [question_id]
+        )
+        question_row = cursor.fetchone()
+
+    if question_row:
+        question = {
+            'id': question_row[0],
+            'title': question_row[1],
+            'description': question_row[2]
+        }
+
+        if request.method == 'POST':
+            question_title = request.POST.get('question_title')
+            question_description = request.POST.get('question_description')
+
+            # Execute an UPDATE query to modify the question in the database
+            with connection.cursor() as cursor:
+                cursor.execute(
+                    "UPDATE question SET question_title = %s, question_description = %s WHERE question_id = %s",
+                    [question_title, question_description, question_id]
+                )
+
+            return redirect('panel')
+
+        context = {
+            'question': question
+        }
+        return render(request, 'brainstorm/admin/edit_question.html', context)
+    else:
+        return redirect('panel')
+
+
+def delete_question(request, question_id):
+    # Execute a DELETE query to remove the question from the database
+    with connection.cursor() as cursor:
+        cursor.execute("DELETE FROM question WHERE question_id = %s", [question_id])
+
+    return redirect('panel')
 
 
 def index(request):
-    return render(request, 'brainstorm/index.html')
-
-
-def qa_portal(request):
     return render(request, 'brainstorm/index.html')
 
 
@@ -90,7 +160,8 @@ def ask_question(request):
         if not question_title or not question_description:
             return render(request, 'brainstorm/ask_question.html', {'questionInput': question_title, 'detailsInput': question_description})
 
-        creation_date = timezone.localtime(timezone.now()).strftime('%Y-%m-%d %H:%M:%S')
+        creation_date = timezone.localtime(
+            timezone.now()).strftime('%Y-%m-%d %H:%M:%S')
         user_id = request.user.id
 
         with connection.cursor() as cursor:
@@ -130,6 +201,7 @@ def register(request):
         password = request.POST.get('password')
         confirm_password = request.POST.get('confirm_password')
         term = request.POST.get('agreement')
+        is_admin = request.POST.get('is_admin') == 'on'
         error_messages = []
         if not (username and email and password and confirm_password and term):
             error_messages.append("All fields are required")
@@ -143,6 +215,10 @@ def register(request):
             else:
                 user = User.objects.create_user(
                     username=username, email=email, password=password)
+
+                if is_admin:
+                    user.is_superuser = True
+                    user.save()
 
                 messages.success(
                     request, "Registration successful. You can now login.")

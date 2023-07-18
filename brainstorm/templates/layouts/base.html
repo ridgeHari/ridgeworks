@@ -30,6 +30,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{% url 'contact' %}" style="color: #ffffff">{% trans 'Contact' %}</a>
                             </li>
+                            {% if user.is_superuser %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'panel' %}" style="color: #ffffff">{% trans 'Admin' %}</a>
+                                </li>
+                            {% endif %}
                             <li class="nav-item">
                                 <a class="nav-link" href="#" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#logoutModal">{% trans 'Logout' %}</a>
                             </li>

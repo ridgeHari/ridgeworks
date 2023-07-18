@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="container">
+  <h1>Edit Question</h1>
+
+  <!-- Edit Question Form -->
+  <form method="POST" action="{% url 'edit_question' question.id %}">
+    {% csrf_token %}
+    <input type="text" name="question_title" value="{{ question.title }}" required />
+    <textarea name="question_description" required>{{ question.description }}</textarea>
+    <button type="submit">Update</button>
+  </form>
+</div>
+{% endblock %}

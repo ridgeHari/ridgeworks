@@ -11,4 +11,8 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('logout/', views.logout, name='logout'),
     path('set-language/<str:lang_code>/', views.set_language, name='set_language'),
+    path('panel/', views.panel, name='panel'),
+    path('add_question/', views.add_question, name='add_question'),
+    path('edit_question/<int:question_id>/', views.edit_question, name='edit_question'),
+    path('delete_question/<int:question_id>/', views.delete_question, name='delete_question'),
 ]
