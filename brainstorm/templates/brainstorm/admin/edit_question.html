@@ -2,14 +2,27 @@
 {% load i18n %}
 {% block content %}
 <div class="container">
-  <h1>Edit Question</h1>
+  <h1 class="mb-4">{% trans 'Edit Question' %}</h1>
 
   <!-- Edit Question Form -->
   <form method="POST" action="{% url 'edit_question' question.id %}">
     {% csrf_token %}
-    <input type="text" name="question_title" value="{{ question.title }}" required />
-    <textarea name="question_description" required>{{ question.description }}</textarea>
-    <button type="submit">Update</button>
+    <div class="mb-3">
+      <label for="question_title" class="form-label">{% trans 'Question Title' %}</label>
+      <input type="text" class="form-control" id="question_title" name="question_title" value="{{ question.title }}" required>
+    </div>
+    <div class="mb-3">
+      <label for="question_description" class="form-label">{% trans 'Question Description' %}</label>
+      {% if question.description|length > 100 %}
+        <textarea class="form-control" id="question_description" name="question_description" rows="5" required>{{ question.description }}</textarea>
+      {% else %}
+        <input type="text" class="form-control" id="question_description" name="question_description" value="{{ question.description }}" readonly>
+      {% endif %}
+    </div>
+    <button type="submit" class="btn btn-outline-primary float-end border-0"><i class="fas fa-check"></i> {% trans 'Update' %}</button>
   </form>
+  <div class="float-start">
+    <a href="{% url 'panel' %}" class="btn btn-outline-secondary border-0"><i class="fas fa-arrow-left"></i> {% trans 'Back' %}</a>
+  </div>
 </div>
 {% endblock %}

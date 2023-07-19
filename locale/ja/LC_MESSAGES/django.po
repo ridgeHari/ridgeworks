@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-18 17:34+0900\n"
+"POT-Creation-Date: 2023-07-19 10:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,75 +18,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:6
-msgid "Admin Panel"
-msgstr "管理パネル"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:9
-msgid "Add Question"
+#: brainstorm/templates/brainstorm/admin/edit_question.html:5
+msgid "Edit Question"
 msgstr "質問の追加"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:15
-#: brainstorm/templates/brainstorm/admin/panel.html:16
+#: brainstorm/templates/brainstorm/admin/edit_question.html:11
+#: brainstorm/templates/brainstorm/admin/panel.html:13
+#: brainstorm/templates/brainstorm/admin/panel.html:20
 msgid "Question Title"
 msgstr "質問タイトル"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:19
-#: brainstorm/templates/brainstorm/admin/panel.html:20
+#: brainstorm/templates/brainstorm/admin/edit_question.html:15
+#: brainstorm/templates/brainstorm/admin/panel.html:26
+#: brainstorm/templates/brainstorm/admin/panel.html:32
 msgid "Question Description"
 msgstr "質問内容"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:22
+#: brainstorm/templates/brainstorm/admin/edit_question.html:22
+msgid "Update"
+msgstr "更新"
+
+#: brainstorm/templates/brainstorm/admin/edit_question.html:25
+msgid "Back"
+msgstr "前へ"
+
+#: brainstorm/templates/brainstorm/admin/panel.html:3
+msgid "Admin Panel"
+msgstr "管理パネル"
+
+#: brainstorm/templates/brainstorm/admin/panel.html:6
+msgid "Add Question"
+msgstr "質問の追加"
+
+#: brainstorm/templates/brainstorm/admin/panel.html:37
 msgid "Add"
 msgstr "追加"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:28
+#: brainstorm/templates/brainstorm/admin/panel.html:44
 msgid "Question List"
 msgstr "質問一覧"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:34
-msgid "Title"
-msgstr "タイトル"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:35
-#: brainstorm/templates/brainstorm/question_detail.html:15
-msgid "Description"
-msgstr "内容"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:36
-msgid "Actions"
-msgstr "操作"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:49
-msgid "Show More"
-msgstr "もっと見る"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:59
+#: brainstorm/templates/brainstorm/admin/panel.html:82
 msgid "Edit"
 msgstr "編集"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:62
-#: brainstorm/templates/brainstorm/admin/panel.html:87
+#: brainstorm/templates/brainstorm/admin/panel.html:89
+#: brainstorm/templates/brainstorm/admin/panel.html:124
 msgid "Delete"
 msgstr "削除"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:79
-msgid "Delete Question"
-msgstr "質問の削除"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:83
+#: brainstorm/templates/brainstorm/admin/panel.html:118
 msgid "Are you sure you want to delete this question?"
 msgstr "この質問を削除してもよろしいですか？"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:86
+#: brainstorm/templates/brainstorm/admin/panel.html:131
 #: brainstorm/templates/layouts/base.html:79
 msgid "Cancel"
 msgstr "キャンセル"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:105
-#: brainstorm/templates/layouts/base.html:73
-msgid "Close"
-msgstr "閉じる"
 
 #: brainstorm/templates/brainstorm/ask_question.html:10
 #: brainstorm/templates/layouts/base.html:28
@@ -164,7 +152,9 @@ msgid "Capture Your Thoughts"
 msgstr "思考を捉える"
 
 #: brainstorm/templates/brainstorm/index.html:25
-msgid "Jot down your ideas and keep track of your brainstorming sessions effortlessly."
+msgid ""
+"Jot down your ideas and keep track of your brainstorming sessions "
+"effortlessly."
 msgstr "アイデアを書き留め、ブレインストーミングセッションを簡単に追跡しましょう。"
 
 #: brainstorm/templates/brainstorm/index.html:31
@@ -172,7 +162,9 @@ msgid "Turn Ideas into Reality"
 msgstr "アイデアを現実にする"
 
 #: brainstorm/templates/brainstorm/index.html:32
-msgid "Transform your innovative concepts into tangible solutions and successful projects."
+msgid ""
+"Transform your innovative concepts into tangible solutions and successful "
+"projects."
 msgstr "革新的なコンセプトを具体的なソリューションや成功したプロジェクトに変えましょう。"
 
 #: brainstorm/templates/brainstorm/login.html:6
@@ -216,6 +208,10 @@ msgstr "アカウントをお持ちでないですか？"
 msgid "Register"
 msgstr "登録"
 
+#: brainstorm/templates/brainstorm/question_detail.html:15
+msgid "Description"
+msgstr "内容"
+
 #: brainstorm/templates/brainstorm/questions_list.html:7
 #: brainstorm/templates/layouts/base.html:25
 msgid "Questions"
@@ -257,7 +253,7 @@ msgstr "ナビゲーションを切り替える"
 
 #: brainstorm/templates/layouts/base.html:35
 msgid "Admin"
-msgstr "管理者"
+msgstr "管理"
 
 #: brainstorm/templates/layouts/base.html:39
 #: brainstorm/templates/layouts/base.html:80
@@ -268,6 +264,10 @@ msgstr "ログアウト"
 msgid "Logout Confirmation"
 msgstr "ログアウトの確認"
 
+#: brainstorm/templates/layouts/base.html:73
+msgid "Close"
+msgstr "閉じる"
+
 #: brainstorm/templates/layouts/base.html:76
 msgid "Are you sure you want to logout?"
 msgstr "ログアウトしてもよろしいですか？"
@@ -275,3 +275,15 @@ msgstr "ログアウトしてもよろしいですか？"
 #: brainstorm/templates/layouts/base.html:94
 msgid "All rights reserved."
 msgstr "全著作権保持。"
+
+#~ msgid "Title"
+#~ msgstr "タイトル"
+
+#~ msgid "Actions"
+#~ msgstr "操作"
+
+#~ msgid "Show More"
+#~ msgstr "もっと見る"
+
+#~ msgid "Delete Question"
+#~ msgstr "質問の削除"
