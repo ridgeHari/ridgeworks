@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-20 17:33+0900\n"
+"POT-Creation-Date: 2023-07-20 17:58+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -137,7 +137,7 @@ msgid "Ask Question"
 msgstr ""
 
 #: brainstorm/templates/brainstorm/contact.html:7
-msgid "Exciting things are happening behind the scenes!"
+msgid "Stay tuned for a great experience!"
 msgstr ""
 
 #: brainstorm/templates/brainstorm/contact.html:9
@@ -146,40 +146,36 @@ msgid ""
 "you amazing features and functionalities."
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:11
-msgid "Stay tuned for the grand reveal!"
-msgstr ""
-
-#: brainstorm/templates/brainstorm/contact.html:22
+#: brainstorm/templates/brainstorm/contact.html:20
 #: brainstorm/templates/layouts/base.html:47
 msgid "Contact"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:34
+#: brainstorm/templates/brainstorm/contact.html:32
 msgid "Name"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:40
+#: brainstorm/templates/brainstorm/contact.html:38
 msgid "Enter your name"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:49
+#: brainstorm/templates/brainstorm/contact.html:47
 msgid "Email"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:55
+#: brainstorm/templates/brainstorm/contact.html:53
 msgid "Enter your email address"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:64
+#: brainstorm/templates/brainstorm/contact.html:62
 msgid "Content of inquiry"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:70
+#: brainstorm/templates/brainstorm/contact.html:68
 msgid "Enter your inquiry"
 msgstr ""
 
-#: brainstorm/templates/brainstorm/contact.html:80
+#: brainstorm/templates/brainstorm/contact.html:78
 msgid "Submit"
 msgstr ""
 
