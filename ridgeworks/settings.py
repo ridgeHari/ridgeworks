@@ -159,3 +159,5 @@ TIME_ZONE = 'Asia/Tokyo'
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
+
+SESSION_COOKIE_AGE = 604800  # 1 week in seconds

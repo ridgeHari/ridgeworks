@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-19 10:04+0900\n"
+"POT-Creation-Date: 2023-07-20 17:33+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,124 +18,176 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: brainstorm/templates/brainstorm/admin/edit_question.html:5
+#: brainstorm/templates/brainstorm/admin/edit_question.html:3
 msgid "Edit Question"
-msgstr "質問の追加"
+msgstr "質問の編集"
 
-#: brainstorm/templates/brainstorm/admin/edit_question.html:11
-#: brainstorm/templates/brainstorm/admin/panel.html:13
-#: brainstorm/templates/brainstorm/admin/panel.html:20
+#: brainstorm/templates/brainstorm/admin/edit_question.html:9
+#: brainstorm/templates/brainstorm/ask_question.html:20
 msgid "Question Title"
 msgstr "質問タイトル"
 
-#: brainstorm/templates/brainstorm/admin/edit_question.html:15
-#: brainstorm/templates/brainstorm/admin/panel.html:26
-#: brainstorm/templates/brainstorm/admin/panel.html:32
+#: brainstorm/templates/brainstorm/admin/edit_question.html:20
+#: brainstorm/templates/brainstorm/ask_question.html:36
 msgid "Question Description"
 msgstr "質問内容"
 
-#: brainstorm/templates/brainstorm/admin/edit_question.html:22
+#: brainstorm/templates/brainstorm/admin/edit_question.html:37
 msgid "Update"
 msgstr "更新"
 
-#: brainstorm/templates/brainstorm/admin/edit_question.html:25
+#: brainstorm/templates/brainstorm/admin/edit_question.html:43
+#: brainstorm/templates/brainstorm/question_detail.html:8
 msgid "Back"
 msgstr "前へ"
 
 #: brainstorm/templates/brainstorm/admin/panel.html:3
-msgid "Admin Panel"
-msgstr "管理パネル"
+msgid "Admin Menu"
+msgstr "管理者メニュー"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:6
-msgid "Add Question"
-msgstr "質問の追加"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:37
-msgid "Add"
-msgstr "追加"
-
-#: brainstorm/templates/brainstorm/admin/panel.html:44
+#: brainstorm/templates/brainstorm/admin/panel.html:5
 msgid "Question List"
 msgstr "質問一覧"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:82
+#: brainstorm/templates/brainstorm/admin/panel.html:29
+#: brainstorm/templates/brainstorm/question_detail.html:151
 msgid "Edit"
 msgstr "編集"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:89
-#: brainstorm/templates/brainstorm/admin/panel.html:124
+#: brainstorm/templates/brainstorm/admin/panel.html:37
+#: brainstorm/templates/brainstorm/admin/panel.html:70
+#: brainstorm/templates/brainstorm/question_detail.html:144
 msgid "Delete"
 msgstr "削除"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:118
+#: brainstorm/templates/brainstorm/admin/panel.html:66
 msgid "Are you sure you want to delete this question?"
 msgstr "この質問を削除してもよろしいですか？"
 
-#: brainstorm/templates/brainstorm/admin/panel.html:131
-#: brainstorm/templates/layouts/base.html:79
+#: brainstorm/templates/brainstorm/admin/panel.html:73
+#: brainstorm/templates/layouts/base.html:136
 msgid "Cancel"
 msgstr "キャンセル"
 
-#: brainstorm/templates/brainstorm/ask_question.html:10
-#: brainstorm/templates/layouts/base.html:28
+#: brainstorm/templates/brainstorm/admin/register.html:5
+#: brainstorm/templates/brainstorm/register.html:5
+msgid "Sign up"
+msgstr "サインアップ"
+
+#: brainstorm/templates/brainstorm/admin/register.html:23
+msgid "Register as Admin"
+msgstr "管理者として登録"
+
+#: brainstorm/templates/brainstorm/admin/register.html:37
+#: brainstorm/templates/brainstorm/register.html:27
+msgid "Your Name"
+msgstr "名前"
+
+#: brainstorm/templates/brainstorm/admin/register.html:45
+#: brainstorm/templates/brainstorm/register.html:35
+msgid "Your Email"
+msgstr "メールアドレス"
+
+#: brainstorm/templates/brainstorm/admin/register.html:53
+#: brainstorm/templates/brainstorm/login.html:37
+#: brainstorm/templates/brainstorm/register.html:43
+msgid "Password"
+msgstr "パスワード"
+
+#: brainstorm/templates/brainstorm/admin/register.html:67
+#: brainstorm/templates/brainstorm/register.html:57
+msgid "Repeat your password"
+msgstr "パスワードを再入力してください"
+
+#: brainstorm/templates/brainstorm/admin/register.html:87
+#: brainstorm/templates/brainstorm/register.html:77
+msgid "I agree to all statements in"
+msgstr "利用規約に全て同意する"
+
+#: brainstorm/templates/brainstorm/admin/register.html:88
+#: brainstorm/templates/brainstorm/register.html:78
+msgid "Terms of Service"
+msgstr "利用規約"
+
+#: brainstorm/templates/brainstorm/admin/register.html:93
+#: brainstorm/templates/brainstorm/login.html:53
+#: brainstorm/templates/brainstorm/register.html:83
+#: brainstorm/templates/layouts/base.html:81
+msgid "Register"
+msgstr "登録"
+
+#: brainstorm/templates/brainstorm/ask_question.html:7
+#: brainstorm/templates/brainstorm/portal.html:31
+#: brainstorm/templates/layouts/base.html:42
 msgid "Ask a Question"
 msgstr "質問する"
 
-#: brainstorm/templates/brainstorm/ask_question.html:23
-msgid "Question"
-msgstr "質問"
+#: brainstorm/templates/brainstorm/ask_question.html:26
+msgid "Enter question title"
+msgstr "質問のタイトルを入力してください"
 
-#: brainstorm/templates/brainstorm/ask_question.html:24
-msgid "Enter your question"
-msgstr "質問を入力してください"
+#: brainstorm/templates/brainstorm/ask_question.html:42
+msgid "Enter question description"
+msgstr "質問の説明を入力してください"
 
-#: brainstorm/templates/brainstorm/ask_question.html:34
-msgid "Details"
-msgstr "詳細"
+#: brainstorm/templates/brainstorm/ask_question.html:62
+msgid "Ask Question"
+msgstr "質問する"
 
-#: brainstorm/templates/brainstorm/ask_question.html:35
-msgid "Enter additional details"
-msgstr "追加の詳細を入力してください"
+#: brainstorm/templates/brainstorm/contact.html:7
+msgid "Exciting things are happening behind the scenes!"
+msgstr "興奮することが裏で起こっています！"
 
-#: brainstorm/templates/brainstorm/ask_question.html:44
-#: brainstorm/templates/brainstorm/contact.html:56
-msgid "Submit"
-msgstr "送信"
+#: brainstorm/templates/brainstorm/contact.html:9
+msgid ""
+"This page is currently under construction, and we are working hard to bring "
+"you amazing features and functionalities."
+msgstr ""
+"このページは現在建設中であり、素晴らしい機能と機能を提供するために努力してい"
+"ます。"
 
-#: brainstorm/templates/brainstorm/contact.html:10
-#: brainstorm/templates/layouts/base.html:31
+#: brainstorm/templates/brainstorm/contact.html:11
+msgid "Stay tuned for the grand reveal!"
+msgstr "グランドリリースをお楽しみに！"
+
+#: brainstorm/templates/brainstorm/contact.html:22
+#: brainstorm/templates/layouts/base.html:47
 msgid "Contact"
 msgstr "お問い合わせ"
 
-#: brainstorm/templates/brainstorm/contact.html:23
+#: brainstorm/templates/brainstorm/contact.html:34
 msgid "Name"
 msgstr "名前"
 
-#: brainstorm/templates/brainstorm/contact.html:24
+#: brainstorm/templates/brainstorm/contact.html:40
 msgid "Enter your name"
 msgstr "名前を入力してください"
 
-#: brainstorm/templates/brainstorm/contact.html:34
+#: brainstorm/templates/brainstorm/contact.html:49
 msgid "Email"
 msgstr "メールアドレス"
 
-#: brainstorm/templates/brainstorm/contact.html:35
+#: brainstorm/templates/brainstorm/contact.html:55
 msgid "Enter your email address"
 msgstr "メールアドレスを入力してください"
 
-#: brainstorm/templates/brainstorm/contact.html:45
-msgid "Message"
-msgstr "メッセージ"
+#: brainstorm/templates/brainstorm/contact.html:64
+msgid "Content of inquiry"
+msgstr "お問い合わせ内容"
 
-#: brainstorm/templates/brainstorm/contact.html:46
-msgid "Enter your message"
-msgstr "メッセージを入力してください"
+#: brainstorm/templates/brainstorm/contact.html:70
+msgid "Enter your inquiry"
+msgstr "お問い合わせ内容を入力してください"
 
-#: brainstorm/templates/brainstorm/index.html:9
+#: brainstorm/templates/brainstorm/contact.html:80
+msgid "Submit"
+msgstr "送信"
+
+#: brainstorm/templates/brainstorm/index.html:11
 msgid "Welcome to Brainstorm"
 msgstr "Brainstormへようこそ"
 
-#: brainstorm/templates/brainstorm/index.html:10
+#: brainstorm/templates/brainstorm/index.html:12
 msgid "Unlock your creativity and explore new ideas!"
 msgstr "創造力を開放し、新しいアイデアを探索しましょう！"
 
@@ -155,7 +207,8 @@ msgstr "思考を捉える"
 msgid ""
 "Jot down your ideas and keep track of your brainstorming sessions "
 "effortlessly."
-msgstr "アイデアを書き留め、ブレインストーミングセッションを簡単に追跡しましょう。"
+msgstr ""
+"アイデアを書き留め、ブレインストーミングセッションを簡単に追跡しましょう。"
 
 #: brainstorm/templates/brainstorm/index.html:31
 msgid "Turn Ideas into Reality"
@@ -165,19 +218,21 @@ msgstr "アイデアを現実にする"
 msgid ""
 "Transform your innovative concepts into tangible solutions and successful "
 "projects."
-msgstr "革新的なコンセプトを具体的なソリューションや成功したプロジェクトに変えましょう。"
+msgstr ""
+"革新的なコンセプトを具体的なソリューションや成功したプロジェクトに変えましょ"
+"う。"
 
-#: brainstorm/templates/brainstorm/login.html:6
-#: brainstorm/templates/brainstorm/login.html:76
-#: brainstorm/templates/layouts/base.html:43
+#: brainstorm/templates/brainstorm/login.html:5
+#: brainstorm/templates/brainstorm/login.html:50
+#: brainstorm/templates/layouts/base.html:76
 msgid "Login"
 msgstr "ログイン"
 
-#: brainstorm/templates/brainstorm/login.html:19
+#: brainstorm/templates/brainstorm/login.html:21
 msgid "Enter a valid username"
 msgstr "有効なユーザー名を入力してください"
 
-#: brainstorm/templates/brainstorm/login.html:23
+#: brainstorm/templates/brainstorm/login.html:24
 msgid "Username"
 msgstr "ユーザー名"
 
@@ -185,99 +240,148 @@ msgstr "ユーザー名"
 msgid "Enter password"
 msgstr "パスワードを入力してください"
 
-#: brainstorm/templates/brainstorm/login.html:38
-#: brainstorm/templates/brainstorm/register.html:75
-msgid "Password"
-msgstr "パスワード"
-
-#: brainstorm/templates/brainstorm/login.html:59
+#: brainstorm/templates/brainstorm/login.html:44
 msgid "Remember me"
 msgstr "ログイン情報を記憶する"
 
-#: brainstorm/templates/brainstorm/login.html:62
+#: brainstorm/templates/brainstorm/login.html:46
 msgid "Forgot password?"
 msgstr "パスワードをお忘れですか？"
 
-#: brainstorm/templates/brainstorm/login.html:79
+#: brainstorm/templates/brainstorm/login.html:52
 msgid "Don't have an account?"
 msgstr "アカウントをお持ちでないですか？"
 
-#: brainstorm/templates/brainstorm/login.html:80
-#: brainstorm/templates/brainstorm/register.html:123
-#: brainstorm/templates/layouts/base.html:46
-msgid "Register"
-msgstr "登録"
+#: brainstorm/templates/brainstorm/portal.html:7
+msgid "Trending Questions"
+msgstr "今話題の質問"
 
-#: brainstorm/templates/brainstorm/question_detail.html:15
+#: brainstorm/templates/brainstorm/question_detail.html:50
 msgid "Description"
 msgstr "内容"
 
-#: brainstorm/templates/brainstorm/questions_list.html:7
-#: brainstorm/templates/layouts/base.html:25
-msgid "Questions"
-msgstr "質問"
+#: brainstorm/templates/brainstorm/question_detail.html:89
+msgid "Add a comment"
+msgstr "コメントを追加する"
 
-#: brainstorm/templates/brainstorm/register.html:6
-msgid "Sign up"
-msgstr "サインアップ"
+#: brainstorm/templates/brainstorm/question_detail.html:99
+msgid "Post Comment"
+msgstr "コメント投稿する"
 
-#: brainstorm/templates/brainstorm/register.html:42
-msgid "Your Name"
-msgstr "名前"
+#: brainstorm/templates/brainstorm/question_detail.html:108
+msgid "Comments"
+msgstr "コメント一覧"
 
-#: brainstorm/templates/brainstorm/register.html:59
-msgid "Your Email"
-msgstr "メールアドレス"
-
-#: brainstorm/templates/brainstorm/register.html:91
-msgid "Repeat your password"
-msgstr "パスワードを再入力してください"
-
-#: brainstorm/templates/brainstorm/register.html:112
-msgid "I agree to all statements in"
-msgstr "利用規約のすべての声明に同意します"
-
-#: brainstorm/templates/brainstorm/register.html:113
-msgid "Terms of Service"
-msgstr "利用規約"
+#: brainstorm/templates/brainstorm/question_detail.html:159
+msgid "No comments available."
+msgstr "まだコメントがありません。"
 
 #: brainstorm/templates/layouts/base.html:8
-#: brainstorm/templates/layouts/base.html:17
-#: brainstorm/templates/layouts/base.html:94
+#: brainstorm/templates/layouts/base.html:19
 msgid "Brainstorm"
 msgstr "Brainstorm"
 
-#: brainstorm/templates/layouts/base.html:18
+#: brainstorm/templates/layouts/base.html:28
 msgid "Toggle navigation"
 msgstr "ナビゲーションを切り替える"
 
-#: brainstorm/templates/layouts/base.html:35
-msgid "Admin"
+#: brainstorm/templates/layouts/base.html:37
+msgid "PORTAL"
+msgstr "ポータル"
+
+#: brainstorm/templates/layouts/base.html:53
+msgid "Admin-Menu"
 msgstr "管理"
 
-#: brainstorm/templates/layouts/base.html:39
-#: brainstorm/templates/layouts/base.html:80
+#: brainstorm/templates/layouts/base.html:58
+msgid "Register(Admin)"
+msgstr "登録(管理者)"
+
+#: brainstorm/templates/layouts/base.html:70
+#: brainstorm/templates/layouts/base.html:138
 msgid "Logout"
 msgstr "ログアウト"
 
-#: brainstorm/templates/layouts/base.html:72
+#: brainstorm/templates/layouts/base.html:123
 msgid "Logout Confirmation"
 msgstr "ログアウトの確認"
 
-#: brainstorm/templates/layouts/base.html:73
+#: brainstorm/templates/layouts/base.html:128
 msgid "Close"
 msgstr "閉じる"
 
-#: brainstorm/templates/layouts/base.html:76
+#: brainstorm/templates/layouts/base.html:132
 msgid "Are you sure you want to logout?"
 msgstr "ログアウトしてもよろしいですか？"
 
-#: brainstorm/templates/layouts/base.html:94
-msgid "All rights reserved."
+#: brainstorm/views.py:35 brainstorm/views.py:142
+msgid "Question title is required."
+msgstr "質問タイトル"
+
+#: brainstorm/views.py:37 brainstorm/views.py:144
+msgid "Question description is required."
+msgstr "質問内容"
+
+#: brainstorm/views.py:170 brainstorm/views.py:197 brainstorm/views.py:237
+msgid "All fields are required"
 msgstr "全著作権保持。"
+
+#: brainstorm/views.py:181
+msgid "Invalid username or password"
+msgstr "有効なユーザー名を入力してください"
+
+#: brainstorm/views.py:199 brainstorm/views.py:239
+msgid "Passwords do not match"
+msgstr "パスワードが一致しません"
+
+#: brainstorm/views.py:201 brainstorm/views.py:241
+msgid "You must agree to the Terms of Service"
+msgstr "利用規約に同意する必要があります"
+
+#: brainstorm/views.py:204 brainstorm/views.py:244
+msgid "Username or email already exists"
+msgstr "ユーザー名またはメールアドレスは既に存在します"
+
+#: brainstorm/views.py:214
+msgid "Registration successful. You can now login."
+msgstr "登録が完了しました。ログインできます。"
+
+#: brainstorm/views.py:488
+msgid "An error occurred. Please try again later."
+msgstr "エラーが発生しました。後でもう一度お試しください。"
+
+#~ msgid "Enter your title"
+#~ msgstr "名前を入力してください"
 
 #~ msgid "Title"
 #~ msgstr "タイトル"
+
+#~ msgid "Question"
+#~ msgstr "質問"
+
+#~ msgid "Add Question"
+#~ msgstr "質問の追加"
+
+#~ msgid "Details"
+#~ msgstr "詳細"
+
+#~ msgid "Enter additional details"
+#~ msgstr "質問の背景を入力してください"
+
+#~ msgid "Message"
+#~ msgstr "メッセージ"
+
+#~ msgid "Enter your message"
+#~ msgstr "メッセージを入力してください"
+
+#~ msgid "All rights reserved."
+#~ msgstr "全著作権保持。"
+
+#~ msgid "Questions"
+#~ msgstr "質問"
+
+#~ msgid "Add"
+#~ msgstr "追加"
 
 #~ msgid "Actions"
 #~ msgstr "操作"

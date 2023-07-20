@@ -1,0 +1,113 @@
+@startuml ER_Diagram
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+
+' Entity Definitions
+entity "auth_group_permissions" as auth_group_permissions <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  group_id : integer
+  permission_id : integer
+}
+
+entity "auth_user_groups" as auth_user_groups <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  user_id : integer
+  group_id : integer
+}
+
+entity "auth_user_user_permissions" as auth_user_user_permissions <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  user_id : integer
+  permission_id : integer
+}
+
+entity "django_content_type" as django_content_type <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  app_label : varchar(100)
+  model : varchar(100)
+}
+
+entity "auth_permission" as auth_permission <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  content_type_id : integer
+  codename : varchar(100)
+  name : varchar(255)
+}
+
+entity "auth_group" as auth_group <<T, #5A5A5A>> #5A5A5A {
+  * id : integer <<generated>>
+  name : varchar(150)
+}
+
+entity "django_session" as django_session <<T, #FFA07A>> #ffffe0 {
+  * session_key : varchar(40) <<generated>>
+  session_data : text
+  expire_date : datetime
+  user_id : integer
+}
+
+entity "Question" as Question <<T, #98FB98>> #ffffe0 {
+  * question_id : integer <<generated>>
+  user_id : integer
+  question_title : text
+  question_description : text
+  creation_date : datetime
+  likes : integer
+}
+
+entity "Comment" as Comment <<T, #98FB98>> #ffffe0 {
+  * comment_id : integer <<generated>>
+  question_id : integer
+  user_id : integer
+  comment_text : text
+  creation_date : datetime
+  likes : integer
+}
+
+entity "auth_user" as auth_user <<T, #FFA07A>> #ffffe0 {
+  * id : integer <<generated>>
+  password : varchar(128)
+  last_login : datetime
+  is_superuser : bool
+  username : varchar(150)
+  last_name : varchar(150)
+  email : varchar(254)
+  is_staff : bool
+  is_active : bool
+  date_joined : datetime
+  first_name : varchar(150)
+}
+
+entity "UserLike" as UserLike <<T, #98FB98>> #ffffe0 {
+  * id : integer <<generated>>
+  user_id : integer
+  question_id : integer
+  comment_id : integer
+  like_type : varchar(10) -- 'question' or 'comment'
+}
+
+' Relationships
+auth_user ||--o{ auth_user_user_permissions : user_id
+auth_permission ||--o{ auth_user_user_permissions : permission_id
+
+auth_group_permissions |o..o{ auth_group : group_id
+auth_permission |o..o{ auth_group_permissions : permission_id
+
+auth_user |o..o{ auth_user_groups : user_id
+auth_group ||--o{ auth_user_groups : group_id
+
+auth_user ||--o{ Question : user_id
+
+Question |o..o{ Comment : question_id
+auth_user ||--o{ Comment : user_id
+
+Question |o..o{ UserLike : question_id
+auth_user ||--o{ UserLike : user_id
+Comment |o..o{ UserLike : comment_id
+
+django_session ||--o{ auth_user : user_id
+
+auth_permission ||--o{ django_content_type : content_type_id
+
+@enduml

@@ -1,169 +1,111 @@
 {% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
 <div class="container">
-  <h1 class="text-center">{% trans 'Admin Panel' %}</h1>
-
-  <!-- Add Question Form -->
-  <h2>{% trans 'Add Question' %}</h2>
-  <div class="row">
-    <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
-      <form method="POST" action="{% url 'add_question' %}">
-        {% csrf_token %}
-        <div class="mb-3">
-          <label for="question_title" class="form-label"
-            >{% trans 'Question Title' %}</label
-          >
-          <input
-            type="text"
-            class="form-control"
-            id="question_title"
-            name="question_title"
-            placeholder="{% trans 'Question Title' %}"
-            required
-          />
+    <h1 class="text-center">{% trans 'Admin Menu' %}</h1>
+    <!-- Question List -->
+    <h2 class="mt-5">{% trans 'Question List' %}</h2>
+    <div class="row">
+        {% for question in question_list %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card shadow mb-4 position-relative" data-question-id="{{ question.0 }}">
+                <div class="card-body" href="#descriptionModal{{ question.0 }}" data-bs-toggle="modal">
+                    #{{ question.0 }}
+                    <h5 class="card-title {% if question.1|length > 50 %}smaller-font{% endif %}">
+                        {% if question.1|length > 50 %}{{ question.1|truncatechars:50 }}
+                        <span id="questionMore{{ question.0 }}" class="d-none">{{ question.1 }}</span>
+                        {% else %}{{ question.1 }}{% endif %}
+                    </h5>
+                    <p class="card-text {% if question.2|length > 150 %}smaller-font{% endif %}">
+                        {% if question.2|length > 150 %}{{ question.2|truncatechars:150 }}
+                        <span id="questionMore{{ question.0 }}" class="d-none">{{ question.2 }}</span>
+                        {% else %}{{ question.2 }}{% endif %}
+                    </p>
+                </div>
+                <div class="card-footer text-center">
+                    <a
+                        href="{% url 'edit_question' question.0 %}"
+                        class="btn btn-outline-primary me-2 float-end border-0"
+                    >
+                        <i class="fas fa-edit"></i>
+                        {% trans 'Edit' %}
+                    </a>
+                    <button
+                        class="btn btn-outline-danger float-start border-0"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal{{ question.0 }}"
+                    >
+                        <i class="fas fa-trash"></i>
+                        {% trans 'Delete' %}
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="mb-3">
-          <label for="question_description" class="form-label"
-            >{% trans 'Question Description' %}</label
-          >
-          <textarea
-            class="form-control"
-            id="question_description"
-            name="question_description"
-            placeholder="{% trans 'Question Description' %}"
-            required
-          ></textarea>
-        </div>
-        <button type="submit" class="btn btn-outline-primary d-block mb-5 float-end border-0">
-          <i class="fas fa-plus"></i> {% trans 'Add' %}
-        </button>
-      </form>
-    </div>
-  </div>
 
-  <!-- Question List -->
-  <h2>{% trans 'Question List' %}</h2>
-  <div class="row">
-    {% for question in question_list %}
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div
-        class="card mb-4 position-relative"
-        data-question-id="{{ question.0 }}"
-      >
+        <!-- Delete Modal -->
         <div
-          class="card-body"
-          href="#descriptionModal{{ question.0 }}"
-          data-bs-toggle="modal"
+            class="modal fade"
+            id="deleteModal{{ question.0 }}"
+            tabindex="-1"
+            aria-labelledby="deleteModalLabel{{ question.0 }}"
+            aria-hidden="true"
         >
-          #{{ question.0 }}
-          <h5
-            class="card-title {% if question.1|length > 50 %}smaller-font{% endif %}"
-          >
-            {% if question.1|length > 50 %}{{ question.1|truncatechars:50 }}
-            <span id="questionMore{{ question.0 }}" class="d-none"
-              >{{ question.1 }}</span
-            >
-            {% else %}{{ question.1 }}{% endif %}
-          </h5>
-          <p
-            class="card-text {% if question.2|length > 150 %}smaller-font{% endif %}"
-          >
-            {% if question.2|length > 150 %}{{ question.2|truncatechars:150 }}
-            <span id="questionMore{{ question.0 }}" class="d-none"
-              >{{ question.2 }}</span
-            >
-            {% else %}{{ question.2 }}{% endif %}
-          </p>
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="ms-2 mt-2">
+                        #{{ question.0 }}
+                        <button
+                            type="button"
+                            class="btn-close float-end me-2"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteModalLabel{{ question.0 }}">{{ question.1 }}</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>{% trans 'Are you sure you want to delete this question?' %}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'delete_question' question.0 %}" class="btn btn-danger float-start">
+                            {% trans 'Delete' %}
+                        </a>
+                        <button type="button" class="btn btn-secondary float-end" data-bs-dismiss="modal">
+                            {% trans 'Cancel' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="card-footer text-center">
-          <a
-            href="{% url 'edit_question' question.0 %}"
-            class="btn btn-outline-primary me-2 float-end border-0"
-          >
-            <i class="fas fa-edit"></i> {% trans 'Edit' %}
-          </a>
-          <button
-            class="btn btn-outline-danger float-start border-0"
-            data-bs-toggle="modal"
-            data-bs-target="#deleteModal{{ question.0 }}"
-          >
-            <i class="fas fa-trash"></i> {% trans 'Delete' %}
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <!-- Delete Modal -->
-    <div
-      class="modal fade"
-      id="deleteModal{{ question.0 }}"
-      tabindex="-1"
-      aria-labelledby="deleteModalLabel{{ question.0 }}"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="ms-2 mt-2">#{{ question.0 }}</div>
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel{{ question.0 }}">
-              {{ question.1 }}
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>{% trans 'Are you sure you want to delete this question?' %}</p>
-          </div>
-          <div class="modal-footer">
-            <a
-              href="{% url 'delete_question' question.0 %}"
-              class="btn btn-danger float-start"
-              >{% trans 'Delete' %}</a
-            >
-            <button
-              type="button"
-              class="btn btn-secondary float-end"
-              data-bs-dismiss="modal"
-            >
-              {% trans 'Cancel' %}
-            </button>
-          </div>
+        <!-- Full Description Modal -->
+        <div
+            class="modal fade"
+            id="descriptionModal{{ question.0 }}"
+            tabindex="-1"
+            aria-labelledby="descriptionModalLabel{{ question.0 }}"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="ms-2 mt-2">
+                        #{{ question.0 }}
+                        <button
+                            type="button"
+                            class="btn-close float-end me-2"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                        ></button>
+                    </div>
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="descriptionModalLabel{{ question.0 }}">{{ question.1 }}</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>{{ question.2 }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+        {% endfor %}
     </div>
-
-    <!-- Full Description Modal -->
-    <div
-      class="modal fade"
-      id="descriptionModal{{ question.0 }}"
-      tabindex="-1"
-      aria-labelledby="descriptionModalLabel{{ question.0 }}"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="ms-2 mt-2">#{{ question.0 }}</div>
-          <div class="modal-header">
-            <h5 class="modal-title" id="descriptionModalLabel{{ question.0 }}">
-              {{ question.1 }}
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>{{ question.2 }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
 </div>
 {% endblock %}

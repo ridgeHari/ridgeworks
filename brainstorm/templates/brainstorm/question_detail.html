@@ -1,11 +1,45 @@
 {% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
-{{question}}
-<div class="container mt-5">
-  <div class="card">
-    <div class="card-header bg-secondary text-white">
+<div class="container">
+  <div>
+    <a
+      href="{% url 'portal' %}"
+      class="btn btn-outline-secondary border-0"
+    >
+      <i class="fas fa-arrow-left"></i> {% trans 'Back' %}
+    </a>
+  </div>
+  <div class="card shadow mt-4">
+    <div class="card-header text-white btn-custom-bg">
       <i class="fas fa-hashtag"></i>
       {{ question.question_id }}
-      <h2 class="card-text fs-4 fw-bold d-inline ms-3">{{ question.question_title }}</h2>
+      <h2 class="card-title {% if question.question_title|length > 100 %}smaller-font{% endif %}">
+        <span id="truncatedTitle{{ question.question_id }}">
+          {% if question.question_title|length > 100 %}
+            {{ question.question_title|truncatechars:100 }}
+          {% else %}
+            {{ question.question_title }}
+          {% endif %}
+        </span>
+        {% if question.question_title|length > 100 %}
+          <span id="questionMoreTitle{{ question.question_id }}" class="d-none">
+            {{ question.question_title }}
+          </span>
+          <a href="#" class="card-link text-white" onclick="toggleQuestionTitle({{ question.question_id }}); return false;">
+            <i class="fas fa-angle-double-down"></i>
+          </a>
+        {% endif %}
+        <!-- Like button for the question -->
+        {% if user_has_liked_question %}
+        <button class="btn btn-like" disabled><i class="fas fa-thumbs-up"><span class="ms-2">{{ question.likes }}</span></i></button>
+        {% else %}
+        <form method="post" action="{% url 'like_question' question_id=question.question_id %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-like">
+            <i class="far fa-thumbs-up"><span class="ms-2">{{ question.likes }}</span></i>
+          </button>
+        </form>
+        {% endif %}
+      </h2>
     </div>
     <div class="card-body">
       <div class="row">
@@ -15,15 +49,149 @@
               <i class="fas fa-file-alt me-2"></i>
               <strong>{% trans 'Description' %}:</strong>
             </h4>
-            <p class="card-text fs-5">{{ question.question_description }}</p>
+            <p class="card-text {% if question.question_description|length > 500 %}smaller-font{% endif %}">
+              <span id="truncatedDescription{{ question.question_id }}">
+                {% if question.question_description|length > 500 %}
+                  {{ question.question_description|truncatechars:500 }}
+                {% else %}
+                  {{ question.question_description }}
+                {% endif %}
+              </span>
+              {% if question.question_description|length > 500 %}
+                <span id="questionMoreDescription{{ question.question_id }}" class="d-none">
+                  {{ question.question_description }}
+                </span>
+                <a href="#" class="card-link text-dark" onclick="toggleQuestionDescription({{ question.question_id }}); return false;">
+                  <i class="fas fa-angle-double-down"></i>
+                </a>
+              {% endif %}
+            </p>
           </div>
         </div>
       </div>
       <div class="text-end">
-        <p class="text-end mb-0"><em>{{ question.creation_date }}</em></p>
-        <p class="text-end mb-0"><em>{{ question.username }}</em></p>
+        <p class="text-muted mb-2"><em>{{ question.creation_date }}</em></p>
+        <p class="text-muted mb-0"><em>{{ question.username }}</em></p>
       </div>
     </div>
   </div>
+  <div class="mt-5">
+    <!-- Comment Section -->
+    <div class="mt-4">
+      <!-- Comment Form -->
+      <form method="POST" action="{% url 'add_comment' question.question_id %}">
+        {% csrf_token %}
+        <div class="mb-3">
+          <textarea
+            class="form-control shadow border-0"
+            name="comment_text"
+            rows="3"
+            placeholder="{% trans 'Add a comment' %}"
+            required
+          ></textarea>
+        </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <button
+            class="btn btn-success text-white border-0 btn-custom-bg"
+            type="submit"
+            style="min-width: 150px;"
+          >
+            <i class="fas fa-comment me-2"></i> {% trans 'Post Comment' %}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Comment List -->
+  <div class="mt-5">
+    {% if comments %}
+    <h4>{% trans 'Comments' %}:</h4>
+    {% for comment in comments %}
+    <div class="comment card shadow mb-1">
+      <div class="card-body">
+        <div class="d-flex flex-column">
+          <p class="mb-1">{{ comment.comment_text }}</p>
+          <footer class="blockquote-footer mt-auto fa-xs text-end">
+            {{ comment.username }}
+            <p>{{ comment.creation_date }}</p>
+          </footer>
+          <form method="post" action="{% url 'like_comment' comment.comment_id %}">
+            {% csrf_token %}
+            {% if comment.user_has_liked_comment %}
+              <button type="submit" class="btn btn-sm" disabled>
+                <i class="fas fa-thumbs-up"><span class="ms-2">{{ comment.likes }}</span></i>
+              </button>
+            {% else %}
+              <button type="submit" class="btn btn-sm">
+                <i class="far fa-thumbs-up"><span class="ms-2">{{ comment.likes }}</span></i>
+              </button>
+            {% endif %}
+          </form>
+        </div>
+        <div class="d-flex justify-content-end">
+          {% if comment.user_id == request.user.id %}
+          <div class="comment-actions">
+            <form
+              method="POST"
+              action="{% url 'delete_comment' question_id=question.question_id comment_id=comment.comment_id %}"
+              class="d-inline"
+            >
+              {% csrf_token %}
+              <button
+                type="submit"
+                class="btn btn-sm btn-outline-danger border-0"
+              >
+                <i class="fas fa-trash me-1"></i> {% trans 'Delete' %}
+              </button>
+            </form>
+            <a
+              href="{% url 'edit_comment' question_id=question.question_id comment_id=comment.comment_id %}"
+              class="btn btn-sm btn-outline-primary me-2 border-0"
+            >
+              <i class="fas fa-edit me-1"></i> {% trans 'Edit' %}
+            </a>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <p>{% trans 'No comments available.' %}</p>
+    {% endif %}
+  </div>
 </div>
+
+<script>
+  function toggleQuestionTitle(questionId) {
+    const moreText = document.getElementById(`questionMoreTitle${questionId}`);
+    const truncatedTitle = document.getElementById(`truncatedTitle${questionId}`);
+    const linkText = document.querySelector(`#questionMoreTitle${questionId} + .card-link`);
+
+    if (moreText.classList.contains("d-none")) {
+      moreText.classList.remove("d-none");
+      truncatedTitle.classList.add("d-none");
+      linkText.innerHTML = '<i class="fas fa-angle-double-up"></i>';
+    } else {
+      moreText.classList.add("d-none");
+      truncatedTitle.classList.remove("d-none");
+      linkText.innerHTML = '<i class="fas fa-angle-double-down"></i>';
+    }
+  }
+
+  function toggleQuestionDescription(questionId) {
+    const moreText = document.getElementById(`questionMoreDescription${questionId}`);
+    const truncatedDescription = document.getElementById(`truncatedDescription${questionId}`);
+    const linkText = document.querySelector(`#questionMoreDescription${questionId} + .card-link`);
+
+    if (moreText.classList.contains("d-none")) {
+      moreText.classList.remove("d-none");
+      truncatedDescription.classList.add("d-none");
+      linkText.innerHTML = '<i class="fas fa-angle-double-up"></i>';
+    } else {
+      moreText.classList.add("d-none");
+      truncatedDescription.classList.remove("d-none");
+      linkText.innerHTML = '<i class="fas fa-angle-double-down"></i>';
+    }
+  }
+</script>
 {% endblock %}

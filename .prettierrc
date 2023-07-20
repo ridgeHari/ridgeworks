@@ -15,7 +15,7 @@
       "files": "*.html",
       "options": {
         "printWidth": 120,
-        "htmlWhitespaceSensitivity": "strict"
+        "htmlWhitespaceSensitivity": "ignore"
       }
     }
   ]

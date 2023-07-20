@@ -1,64 +1,89 @@
-{% extends 'layouts/base.html' %}
-{% load i18n %}
-
-{% block content %}
-<div class="container mt-4">
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container my-5 bg-warning">
   <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow">
-        <div class="card-body">
-          <h3 class="mb-4">{% trans 'Contact' %}</h3>
-          <form method="post" action="{% url 'contact' %}">
-            {% csrf_token %}
-            {% if messages %}
-            <div class="alert alert-danger">
-              <ul>
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-            {% endif %}
-            <div class="mb-3">
-              <label for="nameInput" class="form-label">{% trans 'Name' %}</label>
-              <input type="text" class="form-control" id="nameInput" name="name" placeholder="{% trans 'Enter your name' %}">
-              {% if form.name.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.name.errors %}
-                {{ error }}
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-            <div class="mb-3">
-              <label for="emailInput" class="form-label">{% trans 'Email' %}</label>
-              <input type="email" class="form-control" id="emailInput" name="email" placeholder="{% trans 'Enter your email address' %}">
-              {% if form.email.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.email.errors %}
-                {{ error }}
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-            <div class="mb-3">
-              <label for="messageInput" class="form-label">{% trans 'Message' %}</label>
-              <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="{% trans 'Enter your message' %}"></textarea>
-              {% if form.message.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.message.errors %}
-                {{ error }}
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-            <div class="d-grid">
-              <button type="submit" class="btn btn-lg" style="background-color: #00b894; color: #ffffff">{% trans 'Submit' %}</button>
-            </div>
-          </form>
-        </div>
+    <div class="col-lg-8">
+      <div class="text-center">
+        <i class="fas fa-tools fa-5x mb-4"></i>
+        <h2 class="mb-4">{% trans 'Exciting things are happening behind the scenes!' %}</h2>
+        <p class="lead">
+          {% trans 'This page is currently under construction, and we are working hard to bring you amazing features and functionalities.' %}
+          <br />
+          {% trans 'Stay tuned for the grand reveal!' %}
+        </p>
       </div>
     </div>
   </div>
+</div>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="mb-4">{% trans 'Contact' %}</h3>
+                    <form method="post" action="{% url 'contact' %}">
+                        {% csrf_token %} {% if messages %}
+                        <div class="alert alert-danger">
+                            <ul>
+                                {% for message in messages %}
+                                <li>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        <div class="mb-3">
+                            <label for="nameInput" class="form-label">{% trans 'Name' %}</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="nameInput"
+                                name="name"
+                                placeholder="{% trans 'Enter your name' %}"
+                            />
+                            {% if form.name.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.name.errors %} {{ error }} {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="emailInput" class="form-label">{% trans 'Email' %}</label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="emailInput"
+                                name="email"
+                                placeholder="{% trans 'Enter your email address' %}"
+                            />
+                            {% if form.email.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.email.errors %} {{ error }} {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="messageInput" class="form-label">{% trans 'Content of inquiry' %}</label>
+                            <textarea
+                                class="form-control"
+                                id="messageInput"
+                                name="message"
+                                rows="5"
+                                placeholder="{% trans 'Enter your inquiry' %}"
+                            ></textarea>
+                            {% if form.message.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.message.errors %} {{ error }} {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-lg text-white btn-custom-bg">
+                                {% trans 'Submit' %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

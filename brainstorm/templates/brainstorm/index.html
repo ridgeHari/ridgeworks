@@ -1,35 +1,39 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
-
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center">
-      <h1>{% trans "Welcome to Brainstorm" %}</h1>
-      <p class="lead">{% trans "Unlock your creativity and explore new ideas!" %}</p>
-    </div>
-  </div>
-  <div class="row justify-content-center mt-5">
-    <div class="col-md-4 text-center">
-      <div class="animated fadeInDown">
-        <i class="fas fa-lightbulb fa-3x"></i>
-        <h2 class="mt-4">{% trans "Spark Your Ideas" %}</h2>
-        <p>{% trans "Discover inspiration and ignite your creative thinking with Brainstorm." %}</p>
-      </div>
-    </div>
-    <div class="col-md-4 text-center">
-      <div class="animated fadeInUp delay-1s">
-        <i class="fas fa-pencil-alt fa-3x"></i>
-        <h2 class="mt-4">{% trans "Capture Your Thoughts" %}</h2>
-        <p>{% trans "Jot down your ideas and keep track of your brainstorming sessions effortlessly." %}</p>
-      </div>
-    </div>
-    <div class="col-md-4 text-center">
-      <div class="animated fadeInLeft delay-2s">
-        <i class="fas fa-cogs fa-3x"></i>
-        <h2 class="mt-4">{% trans "Turn Ideas into Reality" %}</h2>
-        <p>{% trans "Transform your innovative concepts into tangible solutions and successful projects." %}</p>
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col">
+      <div class="background-image d-flex align-items-center justify-content-center pt-4" style="height: 100vh;">
+        <div class="text-center">
+          <h1 class="display-4 mb-4">{% trans "Welcome to Brainstorm" %}</h1>
+          <p class="lead mb-5">{% trans "Unlock your creativity and explore new ideas!" %}</p>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="animated animate__fadeInDown">
+                <i class="fas fa-lightbulb fa-3x"></i>
+                <h2 class="mt-4">{% trans "Spark Your Ideas" %}</h2>
+                <p>{% trans "Discover inspiration and ignite your creative thinking with Brainstorm." %}</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="animated animate__fadeInUp animate__delay-1s">
+                <i class="fas fa-pencil-alt fa-3x"></i>
+                <h2 class="mt-4">{% trans "Capture Your Thoughts" %}</h2>
+                <p>{% trans "Jot down your ideas and keep track of your brainstorming sessions effortlessly." %}</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="animated animate__fadeInLeft animate__delay-2s">
+                <i class="fas fa-cogs fa-3x"></i>
+                <h2 class="mt-4">{% trans "Turn Ideas into Reality" %}</h2>
+                <p>{% trans "Transform your innovative concepts into tangible solutions and successful projects." %}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

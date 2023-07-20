@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h2 class="mb-4 text-center">{% trans 'Trending Questions' %}</h2>
+                    <ul class="list-group">
+                        {% for question in question_list %}
+                        <li class="list-group-item border-0">
+                            <em>
+                                <p class="text-start mb-0">
+                                    #{{ question.0 }}
+                                    <a
+                                        class="{% if question.1|length > 100 %}smaller-font{% endif %}"
+                                        href="{% url 'question_detail' question_id=question.0 %}"
+                                    >
+                                        {% if question.1|length > 100 %}{{ question.1|truncatechars:100 }}
+                                        <span id="questionMore{{ question.0 }}" class="d-none">{{ question.1 }}</span>
+                                        {% else %}{{ question.1 }}{% endif %}
+                                    </a>
+                                    <span class="float-end text-muted small">{{ question.3 }}</span>
+                                </p>
+                            </em>
+                            <i class="fas fa-thumbs-up"></i>
+                            {{ question.4 }} Like
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <a href="{% url 'ask_question' %}" class="btn mt-3 float-end text-white btn-custom-bg">
+                        {% trans 'Ask a Question' %}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

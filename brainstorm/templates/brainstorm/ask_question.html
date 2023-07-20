@@ -1,51 +1,70 @@
-{% extends 'layouts/base.html' %}
-{% load i18n %}
-
-{% block content %}
+{% extends 'layouts/base.html' %} {% load i18n %} {% block content %}
 <div class="container mt-4">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card shadow">
-        <div class="card-body">
-          <h3 class="mb-4">{% trans 'Ask a Question' %}</h3>
-          {% if messages %}
-          <div class="alert alert-danger">
-            <ul>
-              {% for message in messages %}
-              <li>{{ message }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          {% endif %}
-          <form method="post" action="{% url 'ask_question' %}">
-            {% csrf_token %}
-            <div class="mb-3">
-              <label for="questionInput" class="form-label">{% trans 'Question' %}</label>
-              <input type="text" class="form-control{% if form.questionInput.errors %} is-invalid{% endif %}" id="questionInput" name="questionInput" placeholder="{% trans 'Enter your question' %}" value="{{ questionInput }}">
-              {% if form.questionInput.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.questionInput.errors %}
-                {{ error }}
-                {% endfor %}
-              </div>
-              {% endif %}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="mb-4">{% trans 'Ask a Question' %}</h3>
+                    {% if messages %}
+                    <div class="alert alert-danger">
+                        <ul>
+                            {% for message in messages %}
+                            <li>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    <form method="post" action="{% url 'ask_question' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="questionInput" class="form-label">{% trans 'Question Title' %}</label>
+                            <input
+                                type="text"
+                                class="form-control{% if form.questionInput.errors %} is-invalid{% endif %}"
+                                id="questionInput"
+                                name="questionInput"
+                                placeholder="{% trans 'Enter question title' %}"
+                                value="{{ questionInput }}"
+                            />
+                            {% if form.questionInput.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.questionInput.errors %} {{ error }} {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="mb-3">
+                            <label for="detailsInput" class="form-label">{% trans 'Question Description' %}</label>
+                            <textarea
+                                class="form-control{% if form.detailsInput.errors %} is-invalid{% endif %}"
+                                id="detailsInput"
+                                name="detailsInput"
+                                rows="5"
+                                placeholder="{% trans 'Enter question description' %}"
+                            >
+{{ detailsInput }}</textarea
+                            >
+                            {% if form.detailsInput.errors %}
+                            <div class="invalid-feedback">
+                                {% for error in form.detailsInput.errors %} {{ error }} {% endfor %}
+                            </div>
+                            {% endif %}
+                        </div>
+                        <button
+                            type="submit"
+                            class="btn float-end text-white btn-custom-bg"
+                            {%
+                            if
+                            form.errors
+                            %}disabled{%
+                            endif
+                            %}
+                        >
+                            {% trans 'Ask Question' %}
+                        </button>
+                    </form>
+                </div>
             </div>
-            <div class="mb-3">
-              <label for="detailsInput" class="form-label">{% trans 'Details' %}</label>
-              <textarea class="form-control{% if form.detailsInput.errors %} is-invalid{% endif %}" id="detailsInput" name="detailsInput" rows="5" placeholder="{% trans 'Enter additional details' %}">{{ detailsInput }}</textarea>
-              {% if form.detailsInput.errors %}
-              <div class="invalid-feedback">
-                {% for error in form.detailsInput.errors %}
-                {{ error }}
-                {% endfor %}
-              </div>
-              {% endif %}
-            </div>
-            <button type="submit" class="btn" style="background-color: #00b894; color: #ffffff" {% if form.errors %}disabled{% endif %}>{% trans 'Submit' %}</button>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 {% endblock %}
